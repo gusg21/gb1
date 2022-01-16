@@ -1,0 +1,3 @@
+# GameBoy Test Project
+
+This is a small GameBoy program that I was hacking on with the intent of creating my own tools (besides the compiler). It's using C and GBDK to compile the code, as well as two Python scripts for converting Tiled- and PNG-format assets into compilable C headers. It was also a really interesting experiment to compile my code to intermediate Assembly and look at how things I did in C affected the generated code. I'm interested in finishing this and making it a full game, but I don't have any ideas at the moment.

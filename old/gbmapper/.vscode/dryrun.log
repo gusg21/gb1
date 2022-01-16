@@ -1,0 +1,9 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/gus/Projects/gb1/gbmapper'
+mkdir -p build/./src/
+cc  -Ilib/include/raylib  -c src/main.c -o build/./src/main.c.o
+ 
+cc ./build/./src/gb.c.o ./build/./src/main.c.o ./build/./src/tilemap.c.o -o build/gbmapper -Llib/include/raylib -lraylib -framework Cocoa -framework IOKit -framework OpenGL -framework CoreVideo
+./build/gbmapper ../bkg.png output.h
+make: Leaving directory `/Users/gus/Projects/gb1/gbmapper'
+ 

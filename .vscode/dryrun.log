@@ -1,0 +1,17 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/gus/Projects/gb1'
+python3 pnggb.py cube.png > cube.h
+python3 pnggb.py bkg.png > bkg.h
+python3 tmxgb.py area1.tmx > area1.h
+bin/gbdk/bin/lcc -Wa-l -Wl-m -Wl-j *.c
+ 
+bin/mgba/mgba a.gb 2> logs/mGBA-log-1642365712.txt
+# run the clean after the test
+/Applications/Xcode.app/Contents/Developer/usr/bin/make clean
+ 
+make[1]: Entering directory `/Users/gus/Projects/gb1'
+rm *.map *.noi *.sav
+make[1]: Leaving directory `/Users/gus/Projects/gb1'
+ 
+make: Leaving directory `/Users/gus/Projects/gb1'
+ 

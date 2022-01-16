@@ -1,0 +1,107 @@
+QOpenGLShader::compile(Vertex): ERROR: 0:1: '' :  #version required and missing.
+ERROR: 0:9: 'attribute' : syntax error: syntax error
+
+*** Problematic Vertex shader source code ***
+#define lowp
+#define mediump
+#define highp
+#line 1
+
+    void setPosition(); 
+    void main(void) 
+    { 
+        setPosition(); 
+    }
+
+    attribute highp   vec2      vertexCoordsArray; 
+    attribute highp   vec3      pmvMatrix1; 
+    attribute highp   vec3      pmvMatrix2; 
+    attribute highp   vec3      pmvMatrix3; 
+    void setPosition(void) 
+    { 
+        highp mat3 pmvMatrix = mat3(pmvMatrix1, pmvMatrix2, pmvMatrix3); 
+        vec3 transformedPos = pmvMatrix * vec3(vertexCoordsArray.xy, 1.0); 
+        gl_Position = vec4(transformedPos.xy, 0.0, transformedPos.z); 
+    }
+
+***
+Vertex shader for simpleShaderProg (MainVertexShader & PositionOnlyVertexShader) failed to compile
+QOpenGLShader::compile(Fragment): ERROR: 0:1: '' :  #version required and missing.
+
+*** Problematic Fragment shader source code ***
+#define lowp
+#define mediump
+#define highp
+#line 1
+
+    lowp vec4 srcPixel(); 
+    void main() 
+    { 
+        gl_FragColor = srcPixel(); 
+    }
+
+    lowp vec4 srcPixel() 
+    { 
+        return vec4(0.98, 0.06, 0.75, 1.0); 
+    }
+
+***
+Fragment shader for simpleShaderProg (MainFragmentShader & ShockingPinkSrcFragmentShader) failed to compile
+QOpenGLShader::link: ERROR: One or more attached shaders not successfully compiled
+
+Errors linking simple shader: ERROR: One or more attached shaders not successfully compiled
+
+QOpenGLShader::compile(Vertex): ERROR: 0:1: '' :  #version required and missing.
+ERROR: 0:3: 'attribute' : syntax error: syntax error
+
+*** Problematic Vertex shader source code ***
+#define lowp
+#define mediump
+#define highp
+#line 1
+
+    attribute highp   vec2      textureCoordArray; 
+    varying   highp   vec2      textureCoords; 
+    void setPosition(); 
+    void main(void) 
+    { 
+        setPosition(); 
+        textureCoords = textureCoordArray; 
+    }
+
+    attribute highp   vec4      vertexCoordsArray; 
+    void setPosition(void) 
+    { 
+        gl_Position = vertexCoordsArray; 
+    }
+
+***
+Vertex shader for blitShaderProg (MainWithTexCoordsVertexShader & UntransformedPositionVertexShader) failed to compile
+QOpenGLShader::compile(Fragment): ERROR: 0:1: '' :  #version required and missing.
+ERROR: 0:9: 'varying' : syntax error: syntax error
+
+*** Problematic Fragment shader source code ***
+#define lowp
+#define mediump
+#define highp
+#line 1
+
+    lowp vec4 srcPixel(); 
+    void main() 
+    { 
+        gl_FragColor = srcPixel(); 
+    }
+
+    varying   highp   vec2      textureCoords; 
+    uniform           sampler2D imageTexture; 
+    lowp vec4 srcPixel() 
+    { 
+return texture2D(imageTexture, textureCoords); 
+}
+
+***
+Fragment shader for blitShaderProg (MainFragmentShader & ImageSrcFragmentShader) failed to compile
+QOpenGLShader::link: ERROR: One or more attached shaders not successfully compiled
+
+Errors linking blit shader: ERROR: One or more attached shaders not successfully compiled
+

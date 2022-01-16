@@ -1,0 +1,8 @@
+#ifndef MAP_H
+#define MAP_H
+
+const uint8_t map_tiles[] = {
+    %s
+};
+
+#endif // MAP_H

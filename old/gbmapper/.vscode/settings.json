@@ -1,0 +1,14 @@
+{
+    "makefile.extensionOutputFolder": "./.vscode",
+    "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
+    "files.associations": {
+        "*.mal": "clojure",
+        "*.asm": "ca65",
+        "*.json": "jsonc",
+        "stdlib.h": "c",
+        "cstdlib": "c",
+        "locale": "c",
+        "ostream": "c",
+        "new": "c"
+    }
+}
